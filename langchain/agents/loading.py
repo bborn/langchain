@@ -41,5 +41,5 @@ def initialize_agent(
             f"Valid types are: {AGENT_TO_CLASS.keys()}."
         )
     agent_cls = AGENT_TO_CLASS[agent]
-    agent_obj = agent_cls.from_llm_and_tools(llm, tools)
+    agent_obj = agent_cls.from_llm_and_tools(llm, tools, **kwargs)
     return AgentExecutor.from_agent_and_tools(agent=agent_obj, tools=tools, **kwargs)

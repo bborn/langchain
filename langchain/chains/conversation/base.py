@@ -28,6 +28,7 @@ class ConversationChain(LLMChain, BaseModel):
     input_key: str = "input"  #: :meta private:
     output_key: str = "response"  #: :meta private:
     buffer: str = ""  #: :meta private:
+    ai_prefix: str = "AI"  #: :meta private:
 
     class Config:
         """Configuration for this pydantic object."""

@@ -35,7 +35,7 @@ class ConversationBufferMemory(Memory, BaseModel):
 
         :meta private:
         """
-        return [self.memory_key]
+        return [self.memory_key, "ai_prefix"]
 
     def load_memory_variables(self, inputs: Dict[str, Any]) -> Dict[str, str]:
         """Return history buffer."""
@@ -83,7 +83,7 @@ class ConversationBufferWindowMemory(Memory, BaseModel):
 
     def load_memory_variables(self, inputs: Dict[str, Any]) -> Dict[str, str]:
         """Return history buffer."""
-        return {self.memory_key: "\n".join(self.buffer[-self.k :])}
+        return {self.memory_key: "\n".join(self.buffer[-self.k:])}
 
     def save_context(self, inputs: Dict[str, Any], outputs: Dict[str, str]) -> None:
         """Save context from this conversation to buffer."""
